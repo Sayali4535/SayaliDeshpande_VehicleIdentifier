@@ -1,0 +1,9 @@
+No Of Big Wheel, No Of Bicycle, No Of Motorcycle, No of Hand Glider, No Of Cars 
+1,1,2,1,1
+
+
+Big Wheel,vehicle 1
+Bicycle,vehicle 2
+Motorcycle,vehicle 5,vehicle 6
+Hand Glider,vehicle 3
+Car,vehicle 4

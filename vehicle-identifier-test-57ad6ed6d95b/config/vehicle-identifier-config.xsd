@@ -1,0 +1,52 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+      targetNamespace="http://com/vehicle/identifier/config"
+      xmlns:tns="http://com/vehicle/identifier/config"
+      elementFormDefault="qualified" version="1.0">
+
+      <annotation>
+            <documentation>
+            This file defines vehicle identification input.
+            </documentation>
+      </annotation>
+
+      <element name="vehicles">
+            <complexType>
+                  <sequence>
+                        <element ref="tns:vehicle" minOccurs="0" maxOccurs="unbounded" />
+                  </sequence>
+            </complexType>
+      </element>
+
+      <element name="vehicle">
+            <complexType>
+                  <sequence>
+                        <element name="id" type="string" maxOccurs="1"/>
+                        <element name="frame" type="tns:frame" maxOccurs="1"/>
+                        <sequence>
+                  <element name="wheels" type="tns:wheels" maxOccurs="1" />
+            </sequence>
+                        <element name="powertrain" type="string" maxOccurs="1"/>
+                  </sequence>
+            </complexType>
+      </element>
+
+      <complexType name="frame">
+            <sequence>
+                  <element name="material" type="string" maxOccurs="1"></element>
+            </sequence>
+      </complexType>
+
+      <complexType name="wheels">
+            <sequence>
+                  <element name="wheel" type="tns:wheel" minOccurs="0" maxOccurs="4"></element>
+            </sequence>
+      </complexType>
+
+      <complexType name="wheel">
+            <sequence>
+                  <element name="position" type="string" maxOccurs="1"></element>
+                  <element name="material" type="string" maxOccurs="1"></element>
+            </sequence>
+      </complexType>
+
+</schema>

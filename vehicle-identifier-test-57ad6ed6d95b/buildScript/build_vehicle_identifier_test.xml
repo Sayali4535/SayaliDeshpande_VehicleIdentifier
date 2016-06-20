@@ -1,0 +1,55 @@
+<!-- 
+	This is script for building vehicle identifier test.
+	Created By Sayali Deshpande
+	run "ant -f build_vehicle_identifier_test.xml build" command from command prompt
+ -->
+
+<project name="project" default="compile" >
+
+	<description> This script will build Vehicle identitfier test </description>
+	
+	<property name="baseDir"    value="."/>
+	<property name="projectDir" value="../"/>
+	<property name="srcDir"     value="${projectDir}/src"/>
+	<property name="libDir"     value="${projectDir}/lib"/>
+	<property name="buildDir"   value="${projectDir}/dist"/>
+	<property name="classesDir" value="${buildDir}/classes"/>
+	
+	<!-- external libraries classpath -->
+	<path id="classpath">
+		<fileset dir="${libDir}/">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	
+	<!-- 1. Cleans previously generated output directory -->	
+	<target name="clean">
+		<delete dir="${buildDir}" />
+		<delete dir="${classesDir}" />
+	</target>
+
+	<!-- 2. Create output directories where compiled source code and 
+			executable jar file will generate -->
+	<target name="createDirectory">
+		<mkdir dir="${buildDir}" />
+		<mkdir dir="${classesDir}" />
+	</target>
+	
+	<!-- 3. Compile source code which is present src directory -->
+    <target name="compile">
+        <javac srcdir="${srcDir}" destdir="${classesDir}" classpathref="classpath"/>
+    </target>
+    
+	<!-- 4. Create vehicleIdentifier.jar file -->
+	<target name="createJar">
+    	<jar destfile="${buildDir}/vehicleIdentifier.jar">
+    		<fileset dir="${classesDir}"/>
+			<manifest>
+    			<attribute name="Main-Class" value="main.resources.VehicleIdentifierMain"/>
+  			</manifest>
+    	</jar>
+	</target>
+
+ 	<!-- Execute tasks one bye one -->
+	<target name="build" depends="clean,createDirectory,compile,createJar" />
+</project>

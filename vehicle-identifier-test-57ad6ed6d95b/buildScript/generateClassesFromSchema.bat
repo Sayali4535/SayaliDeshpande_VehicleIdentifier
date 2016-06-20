@@ -1,0 +1,1 @@
+xjc ../config/vehicle-identifier-config.xsd
