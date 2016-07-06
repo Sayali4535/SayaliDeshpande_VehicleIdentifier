@@ -219,4 +219,28 @@ public class VehicleIdentifier{
 		}
 		bw.newLine();
 	}
+	
+	public int getNoOfCars(){
+		return carList.size();
+	}
+	
+	public int getNoOfBigWheel(){
+		return bigWheelList.size();
+	}
+	
+	public int getNoOfBycle(){
+		return bicycleList.size();
+	}
+	
+	public int getNoOfmotorCycle(){
+		return motorCycleList.size();
+	}
+	
+	public int getNoOfhandGlider(){
+		return handGliderList.size();
+	}
+	
+	public int getNoOfinvalidFormat(){
+		return invalidFormatList.size();
+	}
 }
